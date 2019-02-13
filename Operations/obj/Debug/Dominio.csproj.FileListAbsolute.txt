@@ -1,0 +1,5 @@
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\Operations\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\Operations\bin\Debug\Dominio.dll
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\Operations\bin\Debug\Dominio.pdb
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\Operations\obj\Debug\Dominio.dll
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\Operations\obj\Debug\Dominio.pdb

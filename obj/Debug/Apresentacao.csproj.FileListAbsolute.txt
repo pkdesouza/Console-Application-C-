@@ -1,0 +1,10 @@
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\obj\Debug\Apresentacao.csprojAssemblyReference.cache
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\obj\Debug\Apresentacao.csproj.CoreCompileInputs.cache
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\bin\Debug\Apresentacao.exe.config
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\bin\Debug\Apresentacao.exe
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\bin\Debug\Apresentacao.pdb
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\bin\Debug\Dominio.dll
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\bin\Debug\Dominio.pdb
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\obj\Debug\Apresentacao.csproj.CopyComplete
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\obj\Debug\Apresentacao.exe
+C:\Users\patrick.dorbacao\Downloads\CSharp-21-Fontes_DDRRX\Delegacao\obj\Debug\Apresentacao.pdb
