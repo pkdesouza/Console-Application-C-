@@ -18,7 +18,7 @@ namespace Dominio
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Momento da transacao: {Momento.ToString()}");
             sb.AppendLine($"Transacao: {opcaoPagamento}");
-            sb.AppendLine($"Valor: R${valor}");
+            sb.AppendLine($"Valor: {valor.ToString("C")}");
             CriarRegistro(sb.ToString(),CaminhoExtrato);
         }
         private static void AtualizarSaldo(decimal valor)
@@ -26,7 +26,7 @@ namespace Dominio
             if (File.Exists(CaminhoSaldo))
                 File.Delete(CaminhoSaldo);
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Saldo:{valor.ToString()}");
+            sb.AppendLine($"Saldo:{valor.ToString("C")}");
             CriarRegistro(sb.ToString(), CaminhoSaldo);
         }
 
