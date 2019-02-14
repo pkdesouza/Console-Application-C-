@@ -32,7 +32,7 @@ namespace Apresentacao
                             case 2: RealizarDeposito(); break;
                             case 3: Saldo(); break;
                             case 4: ExibirExtrato(); break;
-                            default: break;
+                            default: Clear(); break;
                         }
                     }
                 }
