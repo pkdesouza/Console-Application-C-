@@ -46,18 +46,21 @@ namespace Apresentacao
                 catch (OverflowException e)
                 {
                     Clear();
+                    Erro.Registrar(e);
                     WriteLine($"Falha na operação com números!\nPossível causa do erro : {e.Message}\nPressione a tecla enter para prosseguir...");
                     throw;
                 }
                 catch (Exception e) when(e.Message.ToLower().Contains("cod:"))
                 {
                     Clear();
+                    Erro.Registrar(e);
                     WriteLine($"Erro do sistema!\nPossível causa do erro : {e.Message}\nPressione a tecla enter para prosseguir...");
                     throw;
                 }
                 catch (Exception e)
                 {
                     Clear();
+                    Erro.Registrar(e);
                     WriteLine($"Erro durante a operação!\nPossível causa do erro : {e.Message}\nPressione a tecla enter para prosseguir...");
                     throw;
                 }

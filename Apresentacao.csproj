@@ -42,9 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Erro.cs" />
-    <Compile Include="Framework.cs" />
-    <Compile Include="Operacao.cs" />
+    <Compile Include="Servicos\Base\BaseOperacao.cs" />
+    <Compile Include="Servicos\Base\Erro.cs" />
+    <Compile Include="Servicos\Framework.cs" />
+    <Compile Include="Servicos\Operacao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,6 +57,9 @@
       <Project>{dc7b0094-6f76-4387-b62e-d6bb847ab5d6}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
