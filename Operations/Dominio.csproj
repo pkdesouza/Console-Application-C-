@@ -48,7 +48,12 @@
     <Compile Include="Servicos\Pagamento.cs" />
     <Compile Include="Servicos\Retorno.cs" />
     <Compile Include="Servicos\Transacao.cs" />
+    <Compile Include="Utilidades\Criptografia.cs" />
     <Compile Include="Utilidades\Extensores.cs" />
+    <Compile Include="Utilidades\Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

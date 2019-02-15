@@ -4,6 +4,7 @@ using static System.Console;
 using static System.Convert;
 using static Dominio.Pagamento;
 using Dominio;
+using Dominio.Utilidades;
 
 namespace Apresentacao
 {
@@ -23,6 +24,7 @@ namespace Apresentacao
             DadosEntrada(out decimal valor, out int pagamento, out OpcoesPagamento formaPagamento);
             operacao.Pagar += pag.RealizarDebito;
             operacao.Fechar(valor, formaPagamento);
+            operacao.Pagar -= pag.RealizarDebito;
             ReadLine();
             Clear();
         }
@@ -32,6 +34,7 @@ namespace Apresentacao
             DadosEntrada(out decimal valor);
             operacao.Depositar += con.DepositoConta;
             Retorno retorno = operacao.Lancar(valor);
+            operacao.Depositar -= con.DepositoConta;
             WriteLine("Status: " + (retorno.Sucesso ? "Sucesso" : "Erro") + "\nRetorno: " + retorno.Mensagem);
             ReadLine();
             Clear();
