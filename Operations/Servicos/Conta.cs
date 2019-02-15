@@ -1,4 +1,5 @@
 ﻿using Dominio.ServicosAbstratos;
+using Dominio.Utilidades;
 using System;
 using System.IO;
 
@@ -35,12 +36,13 @@ namespace Dominio
             if (!File.Exists(CaminhoSaldo))
                 return;
             string[] arquivo = File.ReadAllLines(CaminhoSaldo);
-            for (int i = 0; i < arquivo.Length - 1; i++)
+            for (int i = 0; i < arquivo.Length; i++)
             {
-                if (arquivo[i].IndexOf(":") != -1)
+                string linha = Cripitografia.Decodificar(arquivo[i]);
+                if (linha.IndexOf(":") != -1)
                 {
-                    string[] saldo = arquivo[i].Split(':');
-                    Depositar(Convert.ToDecimal(saldo[1].Trim()));
+                    string[] saldo = linha.Split(':');
+                    Depositar(Convert.ToDecimal(saldo[++i].Trim().RemoverReal()));
                 }
             }
         }
@@ -51,8 +53,12 @@ namespace Dominio
                 return;
             }   
             string[] arquivo = File.ReadAllLines(CaminhoExtrato);
-            for (int i = 0; i < arquivo.Length - 1; i++)
-                Console.WriteLine(arquivo[i]);
+            if (arquivo.Length <= 0) {
+                Console.WriteLine("Sem transações registradas");
+                return;
+            }
+            for (int i = 0; i < arquivo.Length; i++) 
+                Console.WriteLine(Cripitografia.Decodificar(arquivo[i]));
         }
 
     }
