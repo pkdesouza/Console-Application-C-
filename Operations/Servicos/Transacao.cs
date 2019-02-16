@@ -14,11 +14,10 @@ namespace Dominio
         public enum OpcoesTransacoes { Boleto, Cartao, Cheque, Paypal, DebitoConta, CreditoConta };
 
         protected static void RegistrarTransacao(OpcoesTransacoes opcaoPagamento, decimal valor)
-        {
-            
-            AtualizarSaldo(new Conta().ConsultarSaldo() - valor);
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Momento da transacao: {Momento.ToString()}");
+        {   
+			AtualizarSaldo(new Conta().ConsultarSaldo());
+			var sb = new StringBuilder();
+			sb.AppendLine($"Momento da transacao: {Momento.ToString()}");
             sb.AppendLine($"Transacao: {opcaoPagamento}");
             sb.AppendLine($"Valor: {valor.ToString("C")}");
             CriarRegistro(Cripitografia.Codificar(sb.ToString()),CaminhoExtrato);
@@ -27,8 +26,8 @@ namespace Dominio
         {
             if (File.Exists(CaminhoSaldo))
                 File.Delete(CaminhoSaldo);
-            StringBuilder sb = new StringBuilder();
-            sb.Append($"Saldo:{valor.ToString("C")}");
+            var sb = new StringBuilder();
+			sb.Append($"Saldo:{valor.ToString("C")}");
             CriarRegistro(Cripitografia.Codificar(sb.ToString()), CaminhoSaldo);
         }
 

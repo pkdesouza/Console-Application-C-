@@ -13,7 +13,7 @@ namespace Apresentacao
         public static void Saldo()
         {
             Clear();
-            WriteLine($"Saldo Atual: {con.ConsultarSaldo()}");
+            WriteLine($"Saldo Atual: {(con.ConsultarSaldo()).ToString("C")}");
             ReadLine();
             Clear();
         }
@@ -22,9 +22,7 @@ namespace Apresentacao
         {
             Clear();
             DadosEntrada(out decimal valor, out int pagamento, out OpcoesPagamento formaPagamento);
-            operacao.Pagar += pag.RealizarDebito;
             operacao.Fechar(valor, formaPagamento);
-            operacao.Pagar -= pag.RealizarDebito;
             ReadLine();
             Clear();
         }
@@ -32,10 +30,8 @@ namespace Apresentacao
         {
             Clear();
             DadosEntrada(out decimal valor);
-            operacao.Depositar += con.DepositoConta;
-            Retorno retorno = operacao.Lancar(valor);
-            operacao.Depositar -= con.DepositoConta;
-            WriteLine("Status: " + (retorno.Sucesso ? "Sucesso" : "Erro") + "\nRetorno: " + retorno.Mensagem);
+            var retorno = operacao.Lancar(valor);			
+            WriteLine("Status: " + (retorno.Sucesso ? "Sucesso" : "Falha na operação") + "\nRetorno: " + retorno.Mensagem);
             ReadLine();
             Clear();
         }
@@ -44,10 +40,10 @@ namespace Apresentacao
         {
             Clear();
             var i = 0;
-            string[] formasPagamentos = GetNames(typeof(OpcoesPagamento));
-            Action<string> action = new Action<string>(v => WriteLine($"{++i} - {v}"));
-            Predicate<int> predicate = new Predicate<int>(x => x >= 0 && x <= i);
-            Write("Valor do pagamento: R$");
+            var formasPagamentos = GetNames(typeof(OpcoesPagamento));
+			var action = new Action<string>(v => WriteLine($"{++i} - {v}"));
+			var predicate = new Predicate<int>(x => x >= 0 && x <= i);
+			Write("Valor do pagamento: R$");
             valor = ToDecimal(ReadLine().ValorReal());
             WriteLine("Opção de Pagamento: ");
             (formasPagamentos.Lista()).ForEach(action);

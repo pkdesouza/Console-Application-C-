@@ -23,15 +23,15 @@ namespace Dominio.Utilidades
                     return "";
                 tripleDesCryptoServiceProvider.Key = mD5CryptoServiceProvider.ComputeHash(UTF8.GetBytes(chave));
                 tripleDesCryptoServiceProvider.Mode = CipherMode.ECB;
-                ICryptoTransform desdencrypt = tripleDesCryptoServiceProvider.CreateEncryptor();
-                byte[] buff = UTF8.GetBytes(entrada);
+                var desdencrypt = tripleDesCryptoServiceProvider.CreateEncryptor();
+				var buff = UTF8.GetBytes(entrada);
 
-                return ToBase64String(buff, 0, buff.Length);
+				return ToBase64String(buff, 0, buff.Length);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                throw exception;
-            }
+				throw;
+			}
 
         }
 
@@ -44,14 +44,14 @@ namespace Dominio.Utilidades
 
                 tripleDesCryptoServiceProvider.Key = mD5CryptoServiceProvider.ComputeHash(UTF8.GetBytes(chave));
                 tripleDesCryptoServiceProvider.Mode = CipherMode.ECB;
-                ICryptoTransform desdenCrypt = tripleDesCryptoServiceProvider.CreateDecryptor();
-                byte[] buff = FromBase64String(entrada);
+                var desdenCrypt = tripleDesCryptoServiceProvider.CreateDecryptor();
+				var buff = FromBase64String(entrada);
 
-                return UTF8.GetString(buff, 0, buff.Length);
+				return UTF8.GetString(buff, 0, buff.Length);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                throw exception;
+                throw;
             }
         }
     }

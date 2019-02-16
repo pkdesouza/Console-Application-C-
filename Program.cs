@@ -15,7 +15,7 @@ namespace Apresentacao
                 try
                 {
                     RecuperarDados();
-                    int opcao = int.MaxValue;
+                    var opcao = int.MaxValue;
                     while (opcao != 0)
                     {
                         WriteLine("Operações: ");
@@ -65,7 +65,7 @@ namespace Apresentacao
                     throw;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ReadLine();
                 Clear();

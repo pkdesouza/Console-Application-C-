@@ -35,14 +35,14 @@ namespace Dominio
         {
             if (!File.Exists(CaminhoSaldo))
                 return;
-            string[] arquivo = File.ReadAllLines(CaminhoSaldo);
-            for (int i = 0; i < arquivo.Length; i++)
+            var arquivo = File.ReadAllLines(CaminhoSaldo);
+			for (int i = 0; i < arquivo.Length; i++)
             {
-                string linha = Cripitografia.Decodificar(arquivo[i]);
-                if (linha.IndexOf(":") != -1)
+                var linha = Cripitografia.Decodificar(arquivo[i]);
+				if (linha.IndexOf(":") != -1)
                 {
-                    string[] saldo = linha.Split(':');
-                    Depositar(Convert.ToDecimal(saldo[++i].Trim().RemoverReal()));
+                    var saldo = linha.Split(':');
+					Depositar(Convert.ToDecimal(saldo[++i].Trim().RemoverReal()));
                 }
             }
         }
@@ -52,8 +52,8 @@ namespace Dominio
                 Console.WriteLine("Sem transações registradas");
                 return;
             }   
-            string[] arquivo = File.ReadAllLines(CaminhoExtrato);
-            if (arquivo.Length <= 0) {
+            var arquivo = File.ReadAllLines(CaminhoExtrato);
+			if (arquivo.Length <= 0) {
                 Console.WriteLine("Sem transações registradas");
                 return;
             }

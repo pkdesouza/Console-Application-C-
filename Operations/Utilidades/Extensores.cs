@@ -11,8 +11,8 @@ namespace Dominio.Utilidades
 
         public static List<string> Lista(this string[] s)
         {
-            List<string> ls = new List<string>();
-            ls.AddRange(s);
+            var ls = new List<string>();
+			ls.AddRange(s);
             return ls;
         }
     }

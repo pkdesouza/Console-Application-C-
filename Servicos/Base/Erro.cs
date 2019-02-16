@@ -11,8 +11,8 @@ namespace Apresentacao
         private static string Path { get => $"{Diretorio}*nome*.txt".Replace("*nome*", DateTime.Now.ToString("yyyy-MM-dd")); }
         internal static void Registrar(Exception e)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"-------------------------{Momento.ToString()}-------------------------");
+            var sb = new StringBuilder();
+			sb.AppendLine($"-------------------------{Momento.ToString()}-------------------------");
             sb.AppendLine("Mensagem:");
             sb.AppendLine(e.Message);
             sb.AppendLine("Target:");

@@ -15,8 +15,8 @@ namespace Dominio.Tests
             try
             {
                 con.RecuperarSaldo();
-                decimal valor = Convert.ToDecimal(new Random().NextDouble());
-                Retorno r = pag.RealizarDebito(valor, ValorAleatorioEnum<OpcoesPagamento>());
+                var valor = Convert.ToDecimal(new Random().NextDouble());
+                var r = pag.RealizarDebito(valor, ValorAleatorioEnum<OpcoesPagamento>());
                 if (!r.Sucesso)
                     Assert.Fail(r.Mensagem);
             }

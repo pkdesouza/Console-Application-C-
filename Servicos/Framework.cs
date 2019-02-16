@@ -4,13 +4,25 @@ using static Dominio.Pagamento;
 
 namespace Apresentacao
 {
-    public delegate Retorno PagarEvent(decimal valor, OpcoesPagamento opcoesPagamento);
-    public delegate Retorno DepositarEvent(decimal valor);
-    public class Framework
-    {
-        public event PagarEvent Pagar;
-        public event DepositarEvent Depositar;
-        public void Fechar(decimal valor, OpcoesPagamento opcoesPagamento) => Pagar(valor, opcoesPagamento);// delegação...
-        public Retorno Lancar(decimal valor) => Depositar(valor);// delegação...
+	public delegate Retorno PagarEvent(decimal valor, OpcoesPagamento opcoesPagamento);
+	public delegate Retorno DepositarEvent(decimal valor);
+	public class Framework
+	{
+		public event PagarEvent Pagar;
+		public event DepositarEvent Depositar;
+
+		public void Fechar(decimal valor, OpcoesPagamento opcoesPagamento) {
+			var pag = new Pagamento();
+			Pagar += pag.RealizarDebito;
+			Pagar?.Invoke(valor, opcoesPagamento);
+			Pagar -= pag.RealizarDebito;
+		}
+		public Retorno Lancar(decimal valor) {
+			var con = new Conta();
+			Depositar += con.DepositoConta;
+			var retorno = Depositar?.Invoke(valor);
+			Depositar -= con.DepositoConta;
+			return retorno;
+		}
     }
 }

@@ -40,7 +40,7 @@ namespace Dominio.Tests
             try
             {
                 con.RecuperarSaldo();
-                Retorno r = con.DepositoConta(Convert.ToDecimal(new Random().NextDouble()));
+                var r = con.DepositoConta(Convert.ToDecimal(new Random().NextDouble()));
                 if (!r.Sucesso)
                     Assert.Fail(r.Mensagem);
             }
@@ -56,7 +56,7 @@ namespace Dominio.Tests
             try
             {
                 con.RecuperarSaldo();
-                decimal saldo = con.ConsultarSaldo();
+                var saldo = con.ConsultarSaldo();
             }
             catch (Exception e)
             {
